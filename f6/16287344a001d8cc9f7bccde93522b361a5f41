@@ -1,0 +1,129 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.13.0",
+  "base_commit_sha": "f616287344a001d8cc9f7bccde93522b361a5f41",
+  "prompts": {},
+  "changes": [
+    {
+      "new_path": "AGENTS.md",
+      "additions": {
+        "human": 10
+      }
+    },
+    {
+      "new_path": "GLOSSARY.md",
+      "additions": {
+        "human": 19
+      }
+    },
+    {
+      "new_path": "README.md",
+      "additions": {
+        "human": 47
+      }
+    },
+    {
+      "new_path": "docs/adoption.md",
+      "additions": {
+        "human": 61
+      }
+    },
+    {
+      "new_path": "docs/integrations.md",
+      "additions": {
+        "human": 44
+      }
+    },
+    {
+      "new_path": "docs/philosophy.md",
+      "additions": {
+        "human": 39
+      }
+    },
+    {
+      "new_path": "examples/recover-system-view.md",
+      "additions": {
+        "human": 27
+      }
+    },
+    {
+      "new_path": "examples/significant-change.md",
+      "additions": {
+        "human": 39
+      }
+    },
+    {
+      "new_path": "examples/small-fix.md",
+      "additions": {
+        "human": 29
+      }
+    },
+    {
+      "new_path": "skills/maintain-design/SKILL.md",
+      "additions": {
+        "human": 59
+      }
+    },
+    {
+      "new_path": "skills/maintain-design/references/design-policy.md",
+      "additions": {
+        "human": 39
+      }
+    },
+    {
+      "new_path": "skills/maintain-design/references/templates.md",
+      "additions": {
+        "human": 82
+      }
+    },
+    {
+      "new_path": "skills/manage-change/SKILL.md",
+      "additions": {
+        "human": 61
+      }
+    },
+    {
+      "new_path": "skills/manage-change/references/change-policy.md",
+      "additions": {
+        "human": 46
+      }
+    },
+    {
+      "new_path": "skills/manage-change/references/templates.md",
+      "additions": {
+        "human": 90
+      }
+    },
+    {
+      "new_path": "skills/manage-task/SKILL.md",
+      "additions": {
+        "human": 51
+      }
+    },
+    {
+      "new_path": "skills/manage-task/references/local-task-template.md",
+      "additions": {
+        "human": 28
+      }
+    },
+    {
+      "new_path": "skills/manage-task/references/task-policy.md",
+      "additions": {
+        "human": 45
+      }
+    },
+    {
+      "new_path": "tests/check.py",
+      "additions": {
+        "human": 109
+      }
+    },
+    {
+      "new_path": "tests/scenarios.md",
+      "additions": {
+        "human": 36
+      }
+    }
+  ]
+}
