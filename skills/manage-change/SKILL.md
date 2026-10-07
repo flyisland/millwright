@@ -1,61 +1,47 @@
 ---
 name: manage-change
-description: Manage specs, decisions, and outcomes for significant software changes. Use when deciding whether work needs a durable change record, planning or revising such a change, closing delivery, or handling follow-ups and supersession. Not a general task tracker.
+description: Classify significant software changes, synthesize or revise their specs, and close delivery records. Use for scope decisions, outcomes, follow-ups, cancellation, and supersession.
 ---
 
 # Manage Change
 
-Own the significant change's record, not its implementation method. A change record preserves intent, important decisions, and actual delivery; a spec is its authoritative change specification.
+Own the change record and its lifecycle, not implementation technique. Read [change policy](references/change-policy.md) for recording thresholds, authority, states, and history rules.
 
 ## 1. Locate and classify
 
-Read the project's documentation instructions, relevant current design, and any existing record for this work. Follow [change policy](references/change-policy.md) for recording thresholds, authority, and lifecycle rules.
+Read project conventions, relevant current design, and any existing record. Choose with a brief reason: no formal record, update an existing record, or create one. Prior investigation is evidence, not prior approval.
 
-Choose one result with a brief reason: no formal record, update an existing record, or create a new record. Investigation already performed is evidence, not evidence of prior approval.
+For the lightweight path, pass the goal, boundaries, and verification needs to `manage-task` or ordinary execution. No separate classification report is needed.
 
-If no record is warranted, hand the goal, boundaries, and verification needs to `manage-task` or the project's ordinary execution workflow. Do not write a report about why no record was created.
+## 2. Work in the requested phase
 
-**Done when:** the record and target phase are identified, or the lightweight path is explicit.
-
-## 2. Enter the appropriate phase
-
-Load [templates](references/templates.md) only when creating or restructuring a document. Reuse the project's existing equivalents.
+Read [templates](references/templates.md) only when creating or restructuring a document; reuse project equivalents.
 
 ### Plan or resume
 
-- Read relevant design and enough implementation to identify affected responsibilities and behavior.
-- Clarify unresolved goals, scope, edge cases, and validation. Use existing interviewing or prototyping methods when useful.
-- Create or update the spec. Keep execution steps out of the behavioral contract.
-- Record confirmation by the user or authorized project decision-maker before marking Ready. Ask only about decisions that remain unresolved; do not ask to reapprove unchanged, already-confirmed scope.
-- If explicit tasks are useful, hand the spec pointer, acceptance scope, and dependencies to `manage-task`.
-
-**Done when:** a coherent scope is confirmed and Ready, or a Draft names the decisions blocking implementation.
+- Read enough design and implementation to locate affected behavior and responsibilities.
+- For discussion synthesis or draft clarification, use [synthesis](references/synthesis.md); update the canonical spec with the result.
+- Record who confirmed which scope before marking Ready under the policy. Reuse unchanged confirmations.
+- For authorized implementation, pass useful task decomposition to `manage-task`, or pass the confirmed spec directly to `implement-work`/the project method. A planning-only request stops at the spec.
 
 ### Revise during implementation
 
-- Distinguish execution detail from changes to scope, public behavior, ownership, safety, or acceptance.
-- For a material change, record the proposal and obtain the required decision before continuing affected implementation. Unaffected work may continue if safe.
-- Update the active spec and a short dated decision note; keep the original intent and eventual deviation recoverable.
-- Notify affected tasks. When durable rules change, hand their references and implementation status to `maintain-design`.
+Distinguish execution detail from material requirement changes. Obtain the needed decision before affected implementation continues; safe independent work may proceed. Update the active spec and dated decision note, preserving earlier intent and deviations.
 
-**Done when:** the change is confirmed and reflected in affected inputs, or blocked pending a specific decision.
+Notify `manage-task` of affected acceptance/evidence, and `maintain-design` of confirmed rule changes and their implementation status.
 
 ### Close
 
-- Compare the actual delivery against the full acceptance scope, not just task completion counts.
-- Gather actual verification results and known gaps. Reference evidence; do not invent test runs or approval.
-- Reconcile linked tasks: unfinished work needs explicit cancellation, deferral, or a continuing owner/location.
-- Use `maintain-design` for affected current rules. Preserve pending or gated applicability instead of describing unshipped behavior as current.
-- Write the outcome, including deviations and remaining work. Apply the policy's closure gate before marking Completed.
+Compare delivery with full confirmed acceptance, not task counts. Gather verification and required review evidence using `review-work` or the project method. Reconcile unfinished tasks through `manage-task` and affected current rules through `maintain-design`.
 
-**Done when:** the result is honestly closed, or the missing verification/decision/design update is explicitly blocking closure.
+Write the outcome and apply the policy's Completed gate. If it is unmet, identify the missing check, decision, design update, or unfinished-work disposition instead of closing.
 
 ### Follow up, cancel, or supersede
 
-Use the policy to choose an amendment versus a new record. Preserve closed history, link successors, and explain cancellation or replacement. An active follow-up has its own visible pending work; the old Completed status is not proof that the follow-up shipped.
+Apply the policy's amendment/successor and history rules. Record disposition and links; send affected task pointers to `manage-task` for execution reconciliation. Track an active follow-up separately from the parent's historical result.
 
-**Done when:** the disposition, affected work, and next authoritative location are clear.
+## 3. Return the record state
 
-## Handoffs and output
+Report the canonical path, status, decisions/blockers, and next action. Use host mechanisms or explicit handoffs; report unavailable companion operations as unperformed.
 
-Report the record path, status, important decisions or blockers, and next action. Prefer context pointers over duplicated specs. A companion skill may be reached through the host's mechanism or an explicit handoff; if unavailable, state what remains unperformed. Do not claim the whole workflow ran because documentation was written.
+Creating or updating remote records, committing, publishing, and destructive actions require project/user authorization. A tracker location is not write permission; prepare proposed content and request authorization when missing.

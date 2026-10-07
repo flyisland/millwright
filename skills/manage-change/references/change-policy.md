@@ -14,7 +14,7 @@ Follow existing project conventions. Otherwise use `docs/changes/NNN-kebab-slug/
 
 Maintain a compact index in `docs/changes/README.md` when records exist. Avoid a second manually maintained status table: link each record, whose spec owns its status. Do not create an empty archive.
 
-The spec is the authoritative specification for the change. Tracker issues and tasks link to it; project conventions may instead designate an existing tracker spec as authoritative. Choose one, never two synchronized full copies.
+The spec is the authoritative specification for the change. Tracker issues and tasks link to it; project conventions may instead designate an existing tracker spec as authoritative. Choose one, never two synchronized full copies. Verify links to current implementation; label proposed paths as proposed and historical paths with their baseline.
 
 ## Spec states
 
@@ -37,7 +37,7 @@ Active specs can evolve. Use dated decision notes for consequential scope or sem
 
 Closed records remain time-bound history. Correct factual errors with an explicit dated correction. Later rule changes belong in a follow-up or successor, not a rewrite of the old intended behavior. Sensitive material may require removal and separate history-remediation procedures.
 
-An in-frame follow-up can use `amendments/NNN-topic.md`, with scope, decisions, status, result, and evidence. A new independent objective or replacement approach gets a new change record. Link amendments from the parent spec. An amendment is not a license to skip confirmation or verification.
+An in-frame follow-up can use `amendments/NNN-topic.md`, with scope, decisions, status, result, and evidence. A new independent objective or replacement approach gets a new change record. Link amendments from the parent spec. Apply the same confirmation, evidence, and reconciliation gates to amendments; a parent's Completed status does not establish follow-up delivery.
 
 When knowledge is extracted, keep historical content and add a current-design pointer. Mark a decision superseded only when the decision changed, not merely because its current definition moved.
 

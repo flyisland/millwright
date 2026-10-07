@@ -8,6 +8,13 @@
 
 A task can exist without a change record. A change record can be implemented without explicit tasks. Design maintenance can happen independently of delivery work.
 
+## Optional engineering methods
+
+- `implement-work` owns implementation and verification evidence for a bounded request.
+- `review-work` owns requirements and engineering assessments of a stated baseline.
+
+These skills complement the three core owners; they do not approve scope, redefine current rules, or close tasks and changes. They can be used directly without creating administrative records. Existing project methods can replace either skill; no mandatory five-step pipeline is implied.
+
 ## Authority is explicit
 
 For work attached to a change, the spec and applicable approved amendments define the change's intended behavior. Tasks refine execution without replacing that specification. Current design defines the confirmed rules currently in force. A proposed spec may intentionally change those rules, but does not silently make a future rule current.
@@ -36,4 +43,4 @@ Record decisions when they are confirmed. Later reconstruction must be identifie
 
 ## Start small
 
-No mandatory tracker migration, framework runner, ADR directory, or task graph. Add structure when it solves a real persistence, ownership, or coordination problem. Use existing engineering tools for implementation and review.
+No mandatory tracker migration, framework runner, ADR directory, or task graph. Add structure when it solves a real persistence, ownership, or coordination problem. Use the optional engineering skills or existing project methods for implementation and review. Adopt useful methods from external references without inheriting their tracker, runtime, or publication policies.

@@ -1,59 +1,40 @@
 ---
 name: maintain-design
-description: Maintain the current system map, responsibilities, key flows, domain rules, and contracts. Use when confirmed changes affect lasting rules, when extracting knowledge from change records, or when recovering the big picture of an existing system. Surface conflicts instead of inventing new design decisions.
+description: Synchronize lasting rules after confirmed changes or reconstruct a bounded system view. Maintain maps, responsibilities, flows, and contracts while exposing unresolved intent and implementation conflicts.
 ---
 
 # Maintain Design
 
-Maintain the system's current view, not a chronological summary. Read [design policy](references/design-policy.md) for authority, extraction, history, and applicability rules.
+Own the current system view and placement of durable rules. Read [design policy](references/design-policy.md) for authority, applicability, extraction, retirement, and completion requirements.
 
-## 1. Scope the maintenance
+## 1. Bound the maintenance
 
-Choose a mode:
+Choose **synchronize** for rules/navigation affected by a confirmed change, or **reconstruct** for recovering a named system or module. Establish the baseline, sources, and existing documentation entry points before proposing files. Synchronization is not a whole-repository survey.
 
-- **Synchronize:** update the rules and navigation affected by a specific confirmed change. Default during delivery; avoid a whole-repository survey.
-- **Reconstruct:** recover the map and durable rules for a named system, module, or set of changes. Establish a code baseline and bounded scope before exploring.
+## 2. Classify candidate knowledge
 
-Read project design conventions and existing entry points before proposing new files.
+Inspect relevant approved decisions, current design, implementation, and tests. Engineering reports are source pointers to verify against their baseline. In reconstruct mode, trace representative end-to-end flows to identify responsibilities and relationships.
 
-**Done when:** the scope, baseline, mode, and relevant sources are identified.
-
-## 2. Gather and classify evidence
-
-Inspect relevant approved specs/decisions, current design, implementation, and tests. In reconstruct mode, trace a small number of important end-to-end flows to find ownership and relationships, not just directory names.
-
-For each candidate statement distinguish:
+Separate:
 
 - confirmed intent with applicable implementation evidence;
-- observed implementation whose intended status is not yet confirmed;
-- proposed behavior, contradiction, or unresolved inference.
+- observed behavior without confirmed intended status;
+- proposals, contradictions, and unresolved inference.
 
-A test encodes behavior but is not by itself proof that the behavior was approved. Missing evidence belongs in an explicit question or gap.
+Publish under the policy's authority rules. If a portion requires choosing behavior or resolving conflicting intentions, pause it and reach `manage-change` for classification and confirmation; independent factual updates may continue.
 
-**Done when:** each rule to publish has a known basis and applicability; conflicts are visible rather than resolved by guessing.
+## 3. Locate and update the rule
 
-## 3. Select the smallest owner
+Place terminology in the existing glossary, current behavior in its responsible domain/module contract, and historical rationale in its change record or ADR. Use a separate ADR only when independent decision management is warranted.
 
-Place terminology in an existing glossary; current behavior in the responsible domain/module contract; significant historical rationale in its existing change record or ADR. Create a separate ADR only when it needs independent decision management, not to duplicate the same rationale.
+Check identity and ownership language against real flows; use concrete edge cases to expose unresolved meanings rather than settling them through a glossary edit.
 
-Use [templates](references/templates.md) when a new system map, module entry, flow, or rule document is actually needed. Locate each rule in one authoritative place and reference it elsewhere.
+Update the smallest complete rule and its navigation. Change the system map only when responsibilities, ownership, dependencies, or key flows change. Apply the policy's history, applicability, and link-verification rules. Read [templates](references/templates.md) only when a new document is needed.
 
-**Done when:** candidates have a clear owner or an explicit reason not to become durable documentation.
+**Complete when:** the policy's completion requirements hold for the affected view, with material conflicts explicitly exposed.
 
-## 4. Update the current view
+## 4. Return the maintenance result
 
-- Write a self-contained description of currently applicable rules, including meaningful edge cases and invariants.
-- Update the system map only when responsibilities, ownership, dependencies, or key flows changed; otherwise update the relevant detail.
-- Link implementation and verification entry points after checking them. Label proposed or historical paths instead of presenting them as existing.
-- Add links to important decision sources. Preserve historical content and add a pointer back to the current rule when useful.
-- Mark rollout/version/gate limits explicitly. Pending decisions stay outside the confirmed normative section.
+Report changed documents, confirmed rules, open questions, and verification limits. For change-driven work, return these pointers to `manage-change`. Route implementation repairs to `manage-task` or the execution owner; this maintenance result does not close repair work.
 
-If the work would change behavior, widen a constraint, or choose between conflicting intentions, stop that portion and hand the decision to `manage-change` for classification and confirmation. Independent factual updates may proceed.
-
-**Done when:** readers can understand the affected current system without reconstructing it from history, and navigation reaches the rules.
-
-## 5. Report and hand back
-
-List changed documents, confirmed rules, unresolved questions, and verification limits. For change-driven work, return these pointers to `manage-change` for the outcome. For reconstruct work, report observations separately from approved rules; do not claim that documentation repairs implementation defects.
-
-Use the host's skill mechanism or an explicit handoff. If a companion skill is unavailable, describe the decision needed rather than silently authorizing it.
+Use host mechanisms or explicit handoffs. Report unavailable companion operations as unperformed.

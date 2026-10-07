@@ -15,7 +15,8 @@ What this task delivers and what remains unchanged.
 
 ## Completion conditions
 - Observable result, linked to parent acceptance where applicable.
-- Required verification and review.
+- How to demonstrate or check this result, plus required review.
+- Shared integration check and owner, if this task alone cannot establish acceptance.
 
 ## Progress and handoff
 Only facts needed to continue: current baseline/workspace, completed work,

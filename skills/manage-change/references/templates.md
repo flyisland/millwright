@@ -1,6 +1,6 @@
 # Change templates
 
-Use project equivalents when present. Keep sections short; explicitly state None or Not applicable where it prevents ambiguity. Paths to existing code must be verified; label proposed paths as proposed.
+Use project equivalents when present. Keep sections short; state None or Not applicable where it prevents ambiguity. The change policy governs authority, links, and closure.
 
 ## spec.md
 
@@ -59,8 +59,7 @@ Changes from the confirmed intent, reasons, and decision references; or None.
 Distinguish passed, failed, and not checked. Summarize rather than embed full logs.
 
 ## Current design updates
-Updated documents, extraction candidates, or an explicit no-update rationale.
-Changed existing contracts must be synchronized, not merely deferred as candidates.
+Updated documents, justified extraction candidates, or an explicit no-update rationale.
 
 ## Remaining work and risks
 Unverified optional checks, residual risks, and explicit destinations for unfinished work.
@@ -86,5 +85,3 @@ What must be true before this follow-up is complete.
 ## Result and evidence
 Fill after execution; include deviations, design updates, and remaining work.
 ```
-
-A fresh amendment may leave its result pending, but cannot be marked Completed until the same evidence and reconciliation rules as a change are satisfied.

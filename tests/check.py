@@ -7,7 +7,10 @@ import tempfile
 import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED = {"manage-task", "manage-change", "maintain-design"}
+EXPECTED = {
+    "manage-task", "manage-change", "maintain-design",
+    "implement-work", "review-work",
+}
 errors = []
 
 

@@ -2,7 +2,7 @@
 
 ## 1. Install the skills
 
-Copy each complete directory under Millwright's `skills/` into the skill location supported by your agent host. Preserve relative reference files. Install all three for the full workflow. This repository does not yet provide a package-manager release or a platform plugin.
+Copy the complete `manage-task`, `manage-change`, and `maintain-design` directories from Millwright's `skills/` into the skill location supported by your agent host. Preserve relative reference files. Add `implement-work` and/or `review-work` if you want Millwright's optional engineering methods; no external skill set is needed. This repository does not yet provide a package-manager release or a platform plugin.
 
 Installing does not authorize changes to project conventions. You can invoke a skill manually before adding automatic discovery pointers.
 
@@ -15,7 +15,7 @@ Identify:
 - Current architecture, contract, glossary, and ADR entry points.
 - Who confirms scope and risky decisions; required tests and reviews.
 
-Keep working conventions. Do not migrate the tracker or duplicate its specs merely to match Millwright's examples.
+Keep working conventions. Do not migrate the tracker or duplicate its specs merely to match Millwright's examples. Choose the installed engineering skills or existing project methods explicitly; a required independent review cannot be replaced by an implementer's self-review.
 
 ## 3. Add a short project pointer
 
@@ -28,6 +28,8 @@ change records live in <location>. Read <project change policy> when classifying
 Use maintain-design when confirmed changes affect long-lived rules or when
 recovering a system view; current design starts at <design entry>.
 Scope confirmation and required verification follow <existing project rules>.
+If installed, use implement-work for implementation and evidence, and review-work
+for requirements and engineering assessment. Core owners decide lifecycle closure.
 ```
 
 Only point at existing documents. Before the first record, the installed skill's references can provide the default policy without a project policy file. Add project-specific mandatory triggers when known, for example persistence-format or authorization changes.

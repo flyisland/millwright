@@ -30,11 +30,15 @@ Awaiting an available review can remain Doing with an explicit next action. If t
 
 Missing required verification prevents Done. Optional unperformed checks must be disclosed. Changing completion conditions requires the responsible decision-maker's agreement; if parent acceptance changes, update the parent decision first. Risk controls cannot be waived merely by editing a task.
 
+When parent scope changes, reconcile affected task acceptance and the applicability of existing evidence before further execution or closure. Preserve valid historical completion; use a new task for new scope, or reopen only under the rule above. When a parent is cancelled or superseded, stop affected dispatch and record which unfinished tasks are cancelled, deferred, or transferred to the successor. Inform active workers; a status edit alone does not stop their execution.
+
 ## Decomposition and dependencies
 
-Prefer slices with observable end-to-end behavior, sized for reliable execution and handoff. Do not force all work into UI/API/database slices or arbitrary file-count limits. Investigations and migrations can have non-code deliverables.
+Prefer slices with observable end-to-end behavior, sized for reliable execution and handoff. Do not force all work into UI/API/database slices or arbitrary file-count limits. Investigations and migrations can have non-code deliverables. Read [decomposition](decomposition.md) when proposing or revising a breakdown; it owns the step-by-step method and examples.
 
-A blocker gates starting or completing a task; distinguish it from merely related work. Validate the dependency graph for cycles. Start only tasks whose start-blockers are resolved. Shared changes may need coordination even without a semantic dependency; represent that execution constraint explicitly.
+Confirm a consequential decomposition with the responsible decision-maker before publishing its graph or dispatching parallel work. Publish only with the existing artifact-creation authorization; agreement on task granularity is not blanket permission for remote writes. Preserve canonical requirement pointers and map project statuses rather than applying an automatic ready label.
+
+A blocker gates starting or completing a task; distinguish it from merely related work. Validate the dependency graph for cycles. Start only tasks whose start-blockers are resolved. Shared changes may need coordination even without a semantic dependency; represent that execution constraint explicitly. If no reliable claim or ID-allocation mechanism exists, serialize the conflicting operations instead of assuming a recheck makes concurrent writes safe.
 
 Avoid creating a redundant parent-task hierarchy when a change record already supplies the shared goal. Some trackers require parent issues; use them as pointers rather than a second full spec.
 

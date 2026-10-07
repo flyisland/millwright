@@ -1,44 +1,53 @@
-# Integrate engineering skills
+# Engineering skill collaboration
 
-Millwright owns knowledge and work lifecycles, not implementation technique. Existing skills, manual development, and team workflows can provide the engineering work.
+Millwright has three core lifecycle skills and two optional engineering skills. No Matt Pocock skill, tracker setup command, subagent facility, or automatic commit is required. Existing project methods can provide implementation or review instead.
 
-## Mapping from Matt Pocock's skills
+## Ownership and handoffs
 
-These mappings describe concepts, not a runtime dependency or a claim that every installed version has identical behavior.
-
-| Existing capability | Use with Millwright | Adjustment |
+| Operation | Owner | Return or next owner |
 | --- | --- | --- |
-| `grill-with-docs` / interviewing | Clarify a task or spec | Confirmed change decisions go into the canonical spec; terms into the existing glossary. |
-| `to-spec` | Synthesize discussed requirements | Route its output into the canonical change spec, or let manage-change do synthesis. Do not publish a second authoritative spec. |
-| `to-tickets` | Produce verifiable slices and dependencies | Use manage-task's tracker, parent links, and completion rules. |
-| `implement` / `tdd` | Execute agreed work and provide evidence | Return material requirement changes for confirmation. Respect project commit policy, not a hard-coded automatic commit. |
-| `implement-spec` | Optional parallel execution | Keep one authoritative task graph; communicate actual integration and verification state. |
-| `code-review` | Review requirements and standards separately | Read task acceptance plus parent spec when present; read applicable current design alongside coding standards. |
-| `domain-modeling` | Sharpen terminology and decision reasoning | Keep glossary, current rules, and historical rationale distinct; avoid duplicate ADRs. |
-| `prototype` | Resolve uncertain interactions or state models | Save confirmed findings into the spec; a throwaway demo need not become production code or permanent documentation. |
-| `diagnosing-bugs` | Investigate before fixing | Reclassify the work if diagnosis reveals a new durable contract or consequential decision. |
-| `retro` | Improve navigation, checks, and tooling | Keep environment improvement separate from current product design maintenance. |
+| Synthesize discussion, confirm or revise significant behavior | `manage-change` | Canonical spec and decision boundary |
+| Split, coordinate, persist, or close execution work | `manage-task` | Tasks, acceptance subsets, and actual status |
+| Implement and verify bounded work | `implement-work` | Evidence to the task owner, or directly to the change owner |
+| Assess requirements and engineering quality | `review-work` | Findings to the implementer and evidence to the lifecycle owner |
+| Place confirmed applicable rules and synchronize design | `maintain-design` | Current-rule pointers and unresolved conflicts |
 
-A read-only plugin may contain conflicting instructions. Do not assume a vague project note overrides them reliably: choose an adapted local skill or avoid that overlapping command. Millwright does not invoke user-only commands behind the user's back.
+Implementation and review do not close work. Task completion does not close a change. A review finding can reveal an implementation defect, unresolved intent, or stale documentation; send it to the relevant owner rather than automatically changing all three.
 
-## Handoff contract
+## Handoff inputs and results
 
 Use pointers and a small delta:
 
-- Canonical task and parent spec, if any.
-- Applicable current design and approved scope.
-- Completion conditions and required verification.
-- Baseline/workspace, actual findings, unresolved decisions.
-- Operation requested: implement, review, confirm, synchronize, or close.
+- The request, canonical task, and parent spec or approved amendment when present.
+- Applicable current design, approved scope, and acceptance subset.
+- Completion conditions and required verification or review.
+- Baseline/workspace, existing edits, actual findings, and unresolved decisions.
+- Operation requested: synthesize, split, implement, review, confirm, synchronize, or close.
 
-Return actual results, evidence, deviations, and remaining work. A tool's success code alone is not proof of acceptance. If the receiving capability is absent, report the required handoff instead of claiming completion.
+Return actual results, evidence, deviations, and remaining work. State which baseline tests and review cover. After fixes, obtain fresh checks or review where required. If the receiving capability is absent, report the handoff and unperformed action. Self-review is not independent approval.
 
-## Review without a formal spec
+## Direct use and lightweight work
 
-Standalone tasks still have requirements: the user request, task completion conditions, and relevant current rules. Review against those. Ask for missing acceptance conditions rather than generating a formal change record solely to satisfy a review tool.
+A clear user request plus applicable current rules can support direct implementation or review. Do not generate a spec just to satisfy an engineering skill. Use `manage-task` when coordination or persistence is needed and `manage-change` when significant decisions need classification and confirmation.
 
-For child-task reviews, state the acceptance subset so future slices are not falsely reported missing. Before closing the entire change, assess the full confirmed scope and integration requirements.
+For child-task reviews, state the acceptance subset so future slices are not falsely reported missing. Whole-change closure assesses the full confirmed scope and integration requirements. A current-state assessment needs a bounded system area and baseline, not an artificial historical diff.
 
-## Platform neutrality
+## Methods absorbed from external references
 
-Skills use ordinary Markdown plus `name` and `description` frontmatter. Actual invocation, tools, confirmation interfaces, and installation paths are host-specific. No particular Skill API, browser, subagent facility, or issue-tracker integration is assumed.
+Matt Pocock's skills are design references, not dependencies or commands to invoke. Millwright independently expresses selected methods under its own ownership model:
+
+| Reference capability | Millwright placement |
+| --- | --- |
+| `to-spec` and focused interviewing | `manage-change` synthesis reference; drafts preserve unknowns and confirmed scope is not re-interviewed |
+| `to-tickets` | `manage-task` decomposition; verifiable slices, real dependencies, bounded migration batches |
+| `implement` and TDD | `implement-work`, with optional test-first methods in its verification reference |
+| `code-review` | `review-work`; separate requirements and engineering axes, with no required parallel agents |
+| Domain modeling | Focused terminology and responsibility checks in `manage-change` and `maintain-design` |
+
+No separate spec-publishing or ticket-creation workflow is retained. Prototype, deep diagnosis, and other specialist skills are not shipped in this first engineering set; use project methods and add skills only when independent use warrants them. Test-first development is a method, not a requirement for every edit.
+
+## Platform and authorization boundaries
+
+Skills use ordinary Markdown and portable `name` and `description` frontmatter. Invocation, discovery, confirmation interfaces, and installation paths depend on the host. Companion skills are reached by name or explicit handoff, never repository-relative sibling paths.
+
+Project/user permissions govern commits, remote writes, deployment, and destructive operations. Configuring a tracker location or invoking implementation does not itself grant these permissions. If another installed workflow conflicts, choose one clearly designated method rather than assuming a wrapper silently overrides its instructions.

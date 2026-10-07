@@ -20,7 +20,7 @@ No issue is needed if this is completed in the current session. If the environme
 
 ## Execution and closure
 
-Use the existing implementation and testing workflow. Report actual modifications and checks. Mark Done only after required verification passes; disclose optional unperformed device checks separately.
+Use `implement-work` or the existing implementation and testing workflow. Return actual modifications, the checked baseline, and verification gaps. Use `review-work` or the project's review method if required. These reports are evidence, not status changes: manage-task marks Done only after required verification and review are satisfied, disclosing optional unperformed device checks separately.
 
 Expected artifacts: code/tests and ordinary commit or PR history according to project policy. No spec, outcome, or architecture document is created.
 

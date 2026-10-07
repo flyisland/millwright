@@ -18,11 +18,20 @@ The spec links existing lifecycle rules and explicitly proposes changes. It does
 
 Use manage-task to propose verifiable slices:
 
-1. Retry a failed message end to end, including attempt identity and a minimal user entry point.
-2. Exercise reconnect and delayed-event behavior against that delivered retry path; blocked by the first slice.
-3. Verify the complete change in the target environment and finish any required delivery checks; blocked by the implementation slices.
+1. Retry a failed message end to end, including attempt identity and a minimal user entry point. Verify that retry creates a new attempt, late events cannot overwrite it, and reconnect alone does not trigger retry. These invariants travel with the first usable path, not a later hardening task.
+2. Verify the complete retry flow in the target reconnect/event-delivery environment, including delayed and duplicate event sequences; blocked by the first slice. This integration task supplements the slice's checks rather than postponing their first execution.
+
+All three acceptance conditions are implemented and locally verified by task 1; task 2 supplies required target-environment evidence. This narrow example may stay as one task if the same worker can reliably execute both parts. Broader capabilities can add further behavioral slices, not separate UI/API/storage stages.
 
 Each task links the spec and its acceptance coverage. Confirm the decomposition; use the existing tracker rather than duplicating local tickets.
+
+## Implementation and review
+
+Use `implement-work` or the project method for an authorized slice. Supply its acceptance subset, parent spec, current rules, and required checks. The implementer returns actual modifications, evidence, and gaps without closing tasks or changing approved semantics.
+
+Use `review-work` or the project reviewer to assess requirements and engineering quality separately. A slice review does not report later slices as missing; whole-change review covers all confirmed scope. Fixes require fresh relevant checks and any required re-review. Missing independent review remains a gap, not a successful self-review.
+
+For a small enough change, skip explicit tasks and return engineering evidence directly to manage-change. No Matt skill or automatic commit is needed.
 
 ## Material deviation
 
