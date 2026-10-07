@@ -1,0 +1,34 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.13.0",
+  "base_commit_sha": "f82f459d6a35cdfee9755255069c279b88505e7c",
+  "prompts": {},
+  "changes": [
+    {
+      "new_path": "scripts/link-skills.sh",
+      "additions": {
+        "human": 88
+      }
+    },
+    {
+      "new_path": "scripts/list-skills.sh",
+      "additions": {
+        "human": 7
+      }
+    },
+    {
+      "new_path": "tests/test_link_skills.py",
+      "additions": {
+        "human": 95
+      }
+    },
+    {
+      "old_path": "tests/scenarios.md",
+      "new_path": "tests/scenarios.md",
+      "additions": {
+        "human": 10
+      }
+    }
+  ]
+}
