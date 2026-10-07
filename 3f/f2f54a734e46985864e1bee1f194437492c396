@@ -1,0 +1,15 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.13.0",
+  "base_commit_sha": "3ff2f54a734e46985864e1bee1f194437492c396",
+  "prompts": {},
+  "changes": [
+    {
+      "new_path": ".gitignore",
+      "additions": {
+        "human": 1
+      }
+    }
+  ]
+}
