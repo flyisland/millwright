@@ -1,0 +1,47 @@
+# Millwright
+
+**Build features. Keep the whole system in view.**
+
+Millwright is a small set of composable agent skills for managing work, preserving significant change decisions, and maintaining an understandable current system design.
+
+It does not implement code for you, replace your issue tracker, or impose a mandatory development pipeline.
+
+## Choose a skill
+
+| Situation | Skill | Result |
+| --- | --- | --- |
+| Define, split, resume, hand off, or close work | [manage-task](skills/manage-task/SKILL.md) | An actionable task and an honest execution status |
+| Plan, revise, or close a significant software change | [manage-change](skills/manage-change/SKILL.md) | A spec, decisions, and an outcome |
+| Update a contract or recover the system picture | [maintain-design](skills/maintain-design/SKILL.md) | A navigable, current description of confirmed rules |
+
+Small work can stay in a conversation. Significant work gets a durable change record. Long-lived rules belong in current design documents, not only in historical specs.
+
+## Install
+
+Copy the three directories under `skills/` into your agent's configured skill directory. Preserve each directory's `references/` subtree. Use your host's documented skill installation mechanism; invocation syntax and automatic discovery differ by host.
+
+The skills have no required runtime, tracker, subagent tool, or dependency on Matt Pocock's skills. They use standard `name` and `description` frontmatter and ordinary Markdown instructions. Cross-skill handoffs also work without an automatic invocation tool.
+
+The three directories are intended to be installed together. If a companion skill is unavailable, the active skill reports the missing capability and hands off explicitly instead of claiming to have run it.
+
+Then follow [Adoption](docs/adoption.md). Installation alone does not configure a project or create records.
+
+## Read more
+
+- [Vocabulary](GLOSSARY.md)
+- [Design principles](docs/philosophy.md)
+- [Project adoption](docs/adoption.md)
+- [Integration with engineering skills](docs/integrations.md)
+- [Small fix example](examples/small-fix.md)
+- [Significant change example](examples/significant-change.md)
+- [Recovering the system view](examples/recover-system-view.md)
+
+## Development and validation
+
+Run `python3 tests/check.py` with Python 3.9 or newer for structural checks (standard library only). See [scenario checks](tests/scenarios.md) for behavioral acceptance cases. Passing structural checks does not prove an agent follows the workflows.
+
+## Acknowledgements
+
+Inspired by [Prowl's write-ai-doc](https://github.com/onevcat/Prowl/blob/main/.claude/skills/write-ai-doc/SKILL.md) and [Matt Pocock's engineering skills](https://github.com/mattpocock/skills). Millwright's instructions are independently written around its own lifecycle and ownership model.
+
+This initial repository does not yet declare an open-source license.
