@@ -1,0 +1,201 @@
+---
+{
+  "schema_version": "authorship/3.1.0",
+  "tlab_version": "0.13.0",
+  "base_commit_sha": "4190b2bbe5a68a08accaae61fa368d9513100816",
+  "prompts": {},
+  "changes": [
+    {
+      "new_path": "docs/usage.md",
+      "additions": {
+        "human": 261
+      }
+    },
+    {
+      "new_path": "skills/implement-work/SKILL.md",
+      "additions": {
+        "human": 38
+      }
+    },
+    {
+      "new_path": "skills/implement-work/references/verification.md",
+      "additions": {
+        "human": 32
+      }
+    },
+    {
+      "new_path": "skills/manage-change/references/synthesis.md",
+      "additions": {
+        "human": 19
+      }
+    },
+    {
+      "new_path": "skills/manage-task/references/decomposition.md",
+      "additions": {
+        "human": 61
+      }
+    },
+    {
+      "new_path": "skills/review-work/SKILL.md",
+      "additions": {
+        "human": 37
+      }
+    },
+    {
+      "new_path": "skills/review-work/references/review-policy.md",
+      "additions": {
+        "human": 42
+      }
+    },
+    {
+      "old_path": "README.md",
+      "new_path": "README.md",
+      "additions": {
+        "human": 18
+      },
+      "deletions": {
+        "human": 6
+      }
+    },
+    {
+      "old_path": "docs/adoption.md",
+      "new_path": "docs/adoption.md",
+      "additions": {
+        "human": 4
+      },
+      "deletions": {
+        "human": 2
+      }
+    },
+    {
+      "old_path": "docs/integrations.md",
+      "new_path": "docs/integrations.md",
+      "additions": {
+        "human": 38
+      },
+      "deletions": {
+        "human": 29
+      }
+    },
+    {
+      "old_path": "docs/philosophy.md",
+      "new_path": "docs/philosophy.md",
+      "additions": {
+        "human": 8
+      },
+      "deletions": {
+        "human": 1
+      }
+    },
+    {
+      "old_path": "examples/significant-change.md",
+      "new_path": "examples/significant-change.md",
+      "additions": {
+        "human": 12
+      },
+      "deletions": {
+        "human": 3
+      }
+    },
+    {
+      "old_path": "examples/small-fix.md",
+      "new_path": "examples/small-fix.md",
+      "additions": {
+        "human": 1
+      },
+      "deletions": {
+        "human": 1
+      }
+    },
+    {
+      "old_path": "skills/maintain-design/SKILL.md",
+      "new_path": "skills/maintain-design/SKILL.md",
+      "additions": {
+        "human": 18
+      },
+      "deletions": {
+        "human": 37
+      }
+    },
+    {
+      "old_path": "skills/manage-change/SKILL.md",
+      "new_path": "skills/manage-change/SKILL.md",
+      "additions": {
+        "human": 18
+      },
+      "deletions": {
+        "human": 32
+      }
+    },
+    {
+      "old_path": "skills/manage-change/references/change-policy.md",
+      "new_path": "skills/manage-change/references/change-policy.md",
+      "additions": {
+        "human": 2
+      },
+      "deletions": {
+        "human": 2
+      }
+    },
+    {
+      "old_path": "skills/manage-change/references/templates.md",
+      "new_path": "skills/manage-change/references/templates.md",
+      "additions": {
+        "human": 2
+      },
+      "deletions": {
+        "human": 5
+      }
+    },
+    {
+      "old_path": "skills/manage-task/SKILL.md",
+      "new_path": "skills/manage-task/SKILL.md",
+      "additions": {
+        "human": 15
+      },
+      "deletions": {
+        "human": 29
+      }
+    },
+    {
+      "old_path": "skills/manage-task/references/local-task-template.md",
+      "new_path": "skills/manage-task/references/local-task-template.md",
+      "additions": {
+        "human": 2
+      },
+      "deletions": {
+        "human": 1
+      }
+    },
+    {
+      "old_path": "skills/manage-task/references/task-policy.md",
+      "new_path": "skills/manage-task/references/task-policy.md",
+      "additions": {
+        "human": 6
+      },
+      "deletions": {
+        "human": 2
+      }
+    },
+    {
+      "old_path": "tests/check.py",
+      "new_path": "tests/check.py",
+      "additions": {
+        "human": 4
+      },
+      "deletions": {
+        "human": 1
+      }
+    },
+    {
+      "old_path": "tests/scenarios.md",
+      "new_path": "tests/scenarios.md",
+      "additions": {
+        "human": 25
+      },
+      "deletions": {
+        "human": 2
+      }
+    }
+  ]
+}
