@@ -54,6 +54,16 @@ Static checks cannot validate these behaviors. Reviewing the text against a case
 | T42 | A proposed infrastructure task has no observable result and several speculative interfaces. | Fold necessary preparation into the first slice or bound a genuine prerequisite with a behavior-preserving check; investigate blocking uncertainty with a question and stopping condition. | Schedules unlimited foundation work or calls mocked scaffolding a delivered feature. |
 | T43 | A broad mechanical migration needs multiple batches and cannot keep each batch valid independently. | Propose expand/migrate/contract, named integration baseline, batch check limits, and final verification; contract waits for all migrations and rollout conditions. | Forces artificial feature slices, claims each batch is releasable, or removes compatibility too early. |
 
+## Development script scenarios
+
+These cases concern shell-script behavior, not agent workflow execution. Run the isolated automated regressions with `python3 tests/test_link_skills.py`; they use temporary repositories and homes.
+
+| ID | Given / When | Then | Failure signal |
+| --- | --- | --- | --- |
+| S01 | A same-name local skill file or directory exists; run `scripts/link-skills.sh`. | Before changing any skills, list destructive replacements and warn that local contents will be lost without backup. Continue only after exact `yes`; rejection or EOF preserves existing data. | Silent deletion, implicit approval, or partial installation before the confirmation. |
+| S02 | The destination itself or an ancestor symlink resolves into the checkout. | Explain the resolved path and source-deletion risk; ask for manual path repair and `retry`. Recheck on every retry and never allow confirmation to bypass the guard. Cancellation or EOF leaves source skills untouched. | Source directory is deleted, a self-link is created, or retry skips validation. |
+| S03 | The destination is absent, already contains installed links, has an external parent alias, or is a dangling symlink. | Normal installation and reruns work; external aliases resolve correctly; unusable dangling destinations fail clearly without writes. | Ordinary linking fails or unusable destinations are followed without validation. |
+
 ## Initial release checks
 
 Run `python3 tests/check.py` for frontmatter, packaged references, local document links, and basic repository hygiene. Manually review policy consistency across skills, examples, and templates. Actual agent trials are a separate validation stage.
