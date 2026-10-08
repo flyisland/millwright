@@ -10,7 +10,7 @@ A task can exist without a change record. A change record can be implemented wit
 
 ## Optional engineering methods
 
-- `implement-work` owns implementation and verification evidence for a bounded request.
+- `implement-work` owns implementation and verification evidence for a bounded request, including the immediate delegation/check/fix loop when delegation is chosen. Host-specific agent operations remain outside its method.
 - `review-work` owns requirements and engineering assessments of a stated baseline.
 
 These skills complement the three core owners; they do not approve scope, redefine current rules, or close tasks and changes. They can be used directly without creating administrative records. Existing project methods can replace either skill; no mandatory five-step pipeline is implied.
@@ -27,7 +27,7 @@ Project conventions own locations, tracker mappings, approval roles, and verific
 
 Recording effort follows durable decision value. Verification effort follows risk. A small fix with no new design decision may still need rigorous security review.
 
-Conversations can hold short-lived work. Persist work when it must survive a session, wait in a queue, or transfer to another worker. Keep operational logs out of long-lived design documents.
+Conversations can hold short-lived work, including a bounded delegation supervised through its return. Persist work when it must survive a session, wait in a queue, or transfer beyond that supervised exchange; `manage-task` owns the persistence policy. Keep operational logs out of long-lived design documents.
 
 ## Separate history from current knowledge
 

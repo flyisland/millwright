@@ -8,6 +8,12 @@ Reuse already-confirmed verification decisions. Confirm a materially new public 
 
 Expected results come from requirements, worked examples, or independent known values. A test that recomputes the implementation's answer or only asserts its internal calls can agree with incorrect behavior. Use test doubles at real external boundaries when needed; preserve tests of the actual integrations where required.
 
+## Reuse evidence within its scope
+
+For an existing implementation, integration, or prior check, identify the source, checked baseline/environment, and behavior it supports. Compare the relevant differences in the new work; inspect or test those differences rather than restarting the entire investigation or treating past success as universal compatibility. Distinguish established facts, assumptions, and remaining unknowns.
+
+Ground test doubles in documented contracts or observed behavior with traceable source pointers. Check that request/response shapes and relevant supported variants match the new implementation, especially where it adds stricter validation. Synthetic success proves behavior under those inputs, not compatibility with an external system. Preserve required final integration checks and their authorization boundaries.
+
 ## Optional test-first loop
 
 When using TDD:

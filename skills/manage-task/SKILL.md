@@ -25,7 +25,8 @@ For work too large to execute or hand off reliably, or a breakdown needing revis
 
 - Resolve start-blockers and claim work through the project's coordination mechanism before concurrent execution.
 - Supply `implement-work` or the implementer with task/spec pointers, applicable design, acceptance subset, completion conditions, and baseline. Give `review-work` or the project reviewer the same scope when review is requested or required.
-- Track actual blockers and unblock conditions. On resume, inspect existing changes/results before repeating work; persist handoffs using the policy's evidence requirements.
+- Track actual blockers and unblock conditions. On resume, inspect existing changes/results before repeating work; persist handoffs using the policy's evidence requirements. `implement-work` or the project method owns the immediate delegated implementation/check/fix loop.
+- When implementation of a parent change actually starts, pass that fact to `manage-change` for its state transition; dispatch alone is not evidence of a start. Do not leave the parent stale until task closure.
 - Return parent requirement changes to `manage-change`. Reconcile affected tasks under the policy; send confirmed current-rule implications to `maintain-design`.
 
 ## 4. Close against evidence

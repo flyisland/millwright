@@ -52,7 +52,7 @@ If the fix requires a new design decision, explain that before expanding scope.
 
 ## 2. Hand off or resume a task
 
-**When:** work must survive this conversation or transfer to another worker.
+**When:** work must survive this conversation or transfer beyond an immediately supervised delegation. See `manage-task` for persistence policy.
 
 **Handoff prompt:**
 
@@ -201,6 +201,8 @@ implementing material behavior or acceptance changes.
 ```
 
 **Expected result:** implementation and baseline-specific verification evidence. Test-first methods are available where useful, not forced on every edit. Required review uses `review-work` or the project method. Missing checks or reviews remain explicit gaps; core owners determine closure. A small clear request needs no task card or spec merely to use this skill.
+
+When implementation is delegated, `implement-work` loads its optional delegation reference for assignment, context reuse, continuation, and the check/fix loop. Host guidance supplies agent operations; direct implementation needs no subagent setup or extra tracking.
 
 ## 10. Review without changing the implementation
 

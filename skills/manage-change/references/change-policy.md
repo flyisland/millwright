@@ -27,9 +27,9 @@ The spec is the authoritative specification for the change. Tracker issues and t
 | Cancelled | Work is intentionally stopped, with reason and disposition of partial results. |
 | Superseded | A linked successor replaces this record's approach; preserve the predecessor and link both ways. |
 
-Ordinary path: Draft → Ready → In progress → Completed. Ready may return to Draft when confirmation is invalidated. Material uncertainty during implementation is explicitly recorded and blocks affected work; status alone is not approval. Active records may be cancelled or superseded.
+Ordinary path: Draft → Ready → In progress → Completed. Apply the In progress transition when the task or implementation owner reports that authorized implementation actually started; do not wait for delivery or a later scope revision. Ready may return to Draft when confirmation is invalidated. Material uncertainty during implementation is explicitly recorded and blocks affected work; status alone is not approval. Active records may be cancelled or superseded.
 
-Completed means the confirmed final scope is settled, not that every original idea shipped. Scope reductions require explicit confirmation and visible deviations. Missing mandatory verification blocks completion unless an authorized change to requirements or risk acceptance is recorded and project policy permits it. Optional unverified checks and residual risks remain visible in the outcome.
+Completed means the confirmed final scope is settled, not that every original idea shipped. Scope reductions require explicit confirmation and visible deviations. Missing mandatory verification blocks completion unless an authorized change to requirements or risk acceptance is recorded and project policy permits it. Optional unverified checks and residual risks remain visible in the outcome. Disclosing a missing required check is not evidence that it passed or an authorization to omit it. If an acceptance condition admits materially different interpretations, obtain the responsible decision-maker's clarification rather than choose the interpretation that fits delivery.
 
 ## Revisions and history
 
