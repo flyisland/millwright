@@ -9,6 +9,8 @@ description: Implement a bounded request, task, or confirmed spec, including res
 
 Read project instructions, the request/task and parent spec or approved amendments, applicable current design, and required checks. Identify the acceptance subset; a clear small request needs no formal task or spec.
 
+Determine authorization from the current request, confirmed decisions, and project restrictions; checking permission does not automatically require asking again. Distinguish explicit prohibitions, missing authorization, and uncertain interpretation. Before escalating a blocker, verify its key basis and identify the specific decision or permission still needed; do not present a conservative inference as a project rule.
+
 Inspect existing edits and prior results before continuing. Preserve unrelated work. If claiming, dependency reconciliation, splitting, or persistent handoff is needed, reach `manage-task`. For cancelled or superseded inputs, locate the current authorized work first.
 
 **Decision boundary throughout execution:** pause affected work when behavior, contracts, ownership, safety, or acceptance require a material choice. Return evidence and options to `manage-change`, or to `manage-task`/the decision-maker for standalone task scope. Continue only safe, unaffected work; requirement changes are not implementation details.

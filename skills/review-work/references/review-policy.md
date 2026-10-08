@@ -8,6 +8,8 @@ Separate demonstrated defects, supported risks, unresolved questions, and option
 
 For engineering judgments, consider whether unclear names hide responsibilities, duplication can drift, interfaces expose unnecessary internals, or a change forces unrelated modules to move together. Explain concrete consequences; avoid generic smell lists and speculative abstractions. Project conventions override stylistic preferences. Do not repeat formatter/linter complaints unless they reveal a consequential unresolved failure.
 
+For potentially long-running operations, inspect whether users can tell that work has started, understand its current state, and determine the result and recovery path after failure or interruption. Where useful, use safe synthetic inputs or controlled delays to observe feedback before completion. Base findings on expected use and concrete impact, preserve existing output contracts, and distinguish an engineering risk from an unmet confirmed requirement. Do not mandate logs, progress bars, or time estimates for every operation.
+
 When code and approved intent disagree, expose the conflict. Code is evidence of observed behavior, not permission to redefine the requirement. Verify that each finding belongs to the stated scope; label relevant pre-existing issues rather than attributing them to a new change.
 
 ## Priority

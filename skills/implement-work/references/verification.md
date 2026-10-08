@@ -8,6 +8,12 @@ Reuse already-confirmed verification decisions. Confirm a materially new public 
 
 Expected results come from requirements, worked examples, or independent known values. A test that recomputes the implementation's answer or only asserts its internal calls can agree with incorrect behavior. Use test doubles at real external boundaries when needed; preserve tests of the actual integrations where required.
 
+## Isolate checks before execution
+
+Before running checks that can read or write data, inspect their working directory, environment, configuration and input discovery, default paths, and output targets. Use authorized synthetic fixtures and isolated resources unless broader access is explicitly authorized. Assume the behavior under test, including rejection and safety checks, may fail completely: test isolation must not depend on that behavior working. A temporary output directory, disabled network, or mocked service alone does not isolate local inputs.
+
+If a check crosses an authorization boundary or causes unexpected unsafe effects, stop affected operations and promptly report the known scope, evidence, and uncertainties to the responsible decision-maker or coordinator. Do not continue the affected run to collect more evidence or treat the incident as authorized acceptance. Keep safe isolation fixes separate from incident investigation or cleanup; additional access, scans, deletion, or other remediation still require appropriate authorization.
+
 ## Reuse evidence within its scope
 
 For an existing implementation, integration, or prior check, identify the source, checked baseline/environment, and behavior it supports. Compare the relevant differences in the new work; inspect or test those differences rather than restarting the entire investigation or treating past success as universal compatibility. Distinguish established facts, assumptions, and remaining unknowns.
@@ -36,3 +42,7 @@ Use focused checks during edits, then the required broader suite and risk-releva
 Associate observations with the checked baseline and environment. After a fix, rerun affected checks and any broader checks required by the project. Do not present pre-fix results as verification of the final state.
 
 Record method/command, scope, actual result, and remaining limits. Report passed, failed, and not run distinctly. If a required environment is unavailable, state the missing prerequisite and next action; do not infer success from inspection or a tool exit code. Exclude secrets and unnecessary transcripts.
+
+Capture critical evidence when it occurs, not only at final delivery: retain the command or method, actual result, checked baseline/environment, limits, and a retrievable source pointer where available. Before context compaction or handoff, preserve relevant authorization changes, incident metadata, unresolved findings, and key verification evidence in a permitted location that survives the transition. Use concise records or pointers, not full conversations or sensitive payloads; no new task or formal report is inherently required.
+
+Treat missing original results as unverified. Use supported host mechanisms to locate the original evidence when useful and authorized; a summary is not a substitute for a missing result. Keep conclusions within what the observation proves, such as a path being absent at check time rather than proof that no copies exist or data was securely erased.
