@@ -16,7 +16,7 @@ Use project terminology and concrete counterexamples to expose ambiguous identit
 
 ## Preserve usable investigation results
 
-When implementation depends on an investigation result, retain the smallest permitted usable artifact or a reproducible retrieval method, with source, scope, and access prerequisites. Aggregate counts or anonymous examples may support a conclusion without providing the identifiers or contracts needed to implement it. Link existing evidence rather than repeating the investigation or creating a report by default. If safe retention is not possible, expose the remaining retrieval or authorization prerequisite; do not invent the missing details or preserve sensitive data merely for reuse.
+Retain or link the minimum authorized artifact needed for implementation, or a reproducible retrieval method, with provenance, scope, and access prerequisites. Expose gaps that prevent reuse; do not invent missing facts or retain sensitive data for convenience. Reuse existing evidence without creating a report by default.
 
 ## Make acceptance observable
 

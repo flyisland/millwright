@@ -23,13 +23,13 @@ Provide only what the worker needs:
 - Expected return: changed entry points, actual commands/results, checked baseline, unresolved findings and limits, and relevant decisions.
 - A stopping condition: return the bounded result or blocker; do not continue into unrelated work or close lifecycle records.
 
-For a fresh worker, add relevant verified facts, unfinished changes, and useful failed approaches with their reasons. Prefer source and evidence pointers over copying the full transcript. Keep the coordinator's context focused on scope, decisions, progress, and evidence, not every tool log. Exclude secrets and unnecessary data. Neither continuation nor delivery should depend on one worker remembering the whole history. Apply [verification evidence retention](verification.md#evidence-freshness-and-limits) before compaction or transfer, and pass retrievable evidence pointers rather than memory-based claims.
+For a fresh worker, add verified facts, unfinished changes, and useful failed approaches with reasons. Keep coordination context focused on scope, decisions, progress, and evidence pointers. Apply [evidence retention](verification.md#evidence-freshness-and-limits) before compaction or transfer.
 
 ## Establish continuation before dispatch
 
-Name the result recipient, the next action, and how completion, failure, or a decision request will reach that recipient. Use the host's supported notification, wait, or explicit handoff mechanism; no particular API or automatic callback is required. If continuation needs a person to resume the session, state that condition instead of promising automatic progress.
+Define the result recipient, next action, and supported delivery mechanism for completion, failure, and decision requests. State any human resume requirement; do not promise unsupported automatic continuation.
 
-Distinguish ordinary completion from decision requests and urgent safety or authorization incidents. Establish how each reaches the coordinator promptly; commentary in a worker-only conversation is not proof of delivery. For incidents, apply [verification safety boundaries](verification.md#isolate-checks-before-execution). If the host cannot deliver an intermediate alert, end the current execution promptly with the incident or blocker rather than waiting for the whole assignment to finish. State any human resume requirement; neither continuous polling nor a particular messaging API is required.
+Define a prompt escalation path for safety or authorization incidents under [verification safety boundaries](verification.md#isolate-checks-before-execution). Worker-local commentary is not delivery. If intermediate alerts are unavailable, end execution with the incident or blocker rather than waiting for the full assignment.
 
 Follow host semantics for messages to a running worker. Do not assume a follow-up was accepted or a cancellation completed. Before replacing a worker, reconcile its partial work and ensure overlapping writes have stopped. A retry must not accidentally dispatch the same assignment twice.
 
@@ -39,8 +39,8 @@ When a result arrives, perform the next authorized action or identify the actual
 
 1. Inspect actual edits and confirm the returned baseline, scope, and evidence. Before forwarding a blocker to the user, verify its key basis under the scope and authorization guidance in `implement-work`. Identify omissions and out-of-scope changes rather than relying on the worker's completion claim.
 2. Apply [verification methods](verification.md) and the required review through `review-work` or the project method. The coordinator can review when qualified under project requirements; no extra reviewer agent is mandatory. Disclose implementation involvement, and do not substitute an implementer's self-review for required independent approval.
-3. Return actionable findings and reproduction evidence for bounded repair, normally to the same worker. A speed request narrows unnecessary work, not the acceptance conditions. Escalate material requirement choices through the decision boundary in `implement-work`.
-4. Recheck affected behavior and obtain required re-review on the resulting baseline, including integration when needed. Earlier results do not automatically cover later edits.
+3. Return actionable findings and reproduction evidence for bounded repair, normally to the same worker. Apply the decision boundary in `implement-work` to material requirement choices.
+4. Follow [review and repair](../SKILL.md#3-review-and-address-findings) on the resulting baseline, including integration when needed.
 5. Return the final evidence or specific remaining blocker under `implement-work`. Distinguish dispatched, implementation returned, and conditions verified; lifecycle owners decide Done/Completed.
 
 A coordinator assigned only coordination and review should not silently take over implementation. Clarify a changed division of work when necessary, and reassess review independence if the coordinator contributes implementation.

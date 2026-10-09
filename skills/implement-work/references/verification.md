@@ -41,8 +41,8 @@ Use focused checks during edits, then the required broader suite and risk-releva
 
 Associate observations with the checked baseline and environment. After a fix, rerun affected checks and any broader checks required by the project. Do not present pre-fix results as verification of the final state.
 
-Record method/command, scope, actual result, and remaining limits. Report passed, failed, and not run distinctly. If a required environment is unavailable, state the missing prerequisite and next action; do not infer success from inspection or a tool exit code. Exclude secrets and unnecessary transcripts.
+Capture evidence when observed: **method/command, scope, baseline/environment, actual result, limits, and retrievable source where available**. Distinguish passed, failed, and not run; unavailable checks need a prerequisite and next action.
 
-Capture critical evidence when it occurs, not only at final delivery: retain the command or method, actual result, checked baseline/environment, limits, and a retrievable source pointer where available. Before context compaction or handoff, preserve relevant authorization changes, incident metadata, unresolved findings, and key verification evidence in a permitted location that survives the transition. Use concise records or pointers, not full conversations or sensitive payloads; no new task or formal report is inherently required.
+Before compaction or handoff, retain relevant evidence, authorization changes, incident metadata, and unresolved findings in a permitted location that survives the transition. Use concise records or source pointers, excluding sensitive payloads; no new task or report is required solely for retention.
 
-Treat missing original results as unverified. Use supported host mechanisms to locate the original evidence when useful and authorized; a summary is not a substitute for a missing result. Keep conclusions within what the observation proves, such as a path being absent at check time rather than proof that no copies exist or data was securely erased.
+Keep claims within what the evidence establishes. Recover missing results through authorized means where practical; unrecoverable results remain unverified, not replaced by summaries or tool exit codes.

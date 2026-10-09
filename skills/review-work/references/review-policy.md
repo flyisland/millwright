@@ -8,9 +8,13 @@ Separate demonstrated defects, supported risks, unresolved questions, and option
 
 For engineering judgments, consider whether unclear names hide responsibilities, duplication can drift, interfaces expose unnecessary internals, or a change forces unrelated modules to move together. Explain concrete consequences; avoid generic smell lists and speculative abstractions. Project conventions override stylistic preferences. Do not repeat formatter/linter complaints unless they reveal a consequential unresolved failure.
 
-For affected user-facing behavior, trace a representative path from the expected entry point and prerequisites to an observable result. Check relevant established usage conventions, common failures, and whether the user can understand and recover from them; internal test coverage alone does not establish usability. Use safe, authorized fixtures where execution helps. Ground findings in confirmed contracts or concrete expected-use impact, distinguish usability risks from requirement violations, and route material behavior choices for confirmation. This does not mandate implicit defaults, real-data access, or a particular interface.
+Assess affected user-facing behavior through representative end-to-end paths:
 
-For potentially long-running operations, inspect whether users can tell that work has started, understand its current state, and determine the result and recovery path after failure or interruption. Where useful, use safe synthetic inputs or controlled delays to observe feedback before completion. Base findings on expected use and concrete impact, preserve existing output contracts, and distinguish an engineering risk from an unmet confirmed requirement. Do not mandate logs, progress bars, or time estimates for every operation.
+- **Usability:** entry points, prerequisites, established usage conventions, and observable results.
+- **System status visibility:** start, progress, and completion; for long-running operations, inspect feedback before completion.
+- **Error recovery:** actionable failure information and recovery after errors or interruptions.
+
+Use safe synthetic checks where useful. Ground findings in concrete user impact and preserve existing contracts; material behavior choices require confirmation, not a prescribed interface.
 
 When code and approved intent disagree, expose the conflict. Code is evidence of observed behavior, not permission to redefine the requirement. Verify that each finding belongs to the stated scope; label relevant pre-existing issues rather than attributing them to a new change.
 
@@ -31,13 +35,12 @@ Start with the target, baseline, scope, and sources. Label self-review; it does 
 
 Keep the body concise:
 
-### Requirements
+### Findings
 
-For each finding: priority, title, requirement pointer, affected location, evidence or trigger, impact, and suggested correction direction. If no formal spec exists, cite the request or task instead. If requirement coverage is unavailable, say which portion could not be assessed.
+Use one format: **priority · title · location · evidence/trigger · impact · basis · correction direction**. Group by axis:
 
-### Engineering
-
-For each finding: priority, title, location, evidence or trigger, impact, and applicable standard or explicit heuristic. Cross-reference findings already reported under Requirements instead of counting them twice.
+- **Requirements:** cite the spec, request, or task; identify any scope that could not be assessed.
+- **Engineering:** cite the contract, standard, or explicit engineering heuristic. Cross-reference findings already reported under Requirements rather than counting them twice.
 
 ### Verification and limits
 
