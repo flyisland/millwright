@@ -2,7 +2,9 @@
 
 Use Millwright **inside the project you want to develop**, not inside the Millwright source repository. Install the three complete core skill directories, optionally add `implement-work` and `review-work`, then follow [project adoption](adoption.md) to identify existing trackers, specifications, and design documents.
 
-The prompts below use ordinary language. A host may also expose slash commands, but their syntax and automatic skill discovery vary. Naming a skill explicitly is a useful way to make your intention clear.
+These examples express intent, not a required invocation format. State the goal and any phase or permission boundary; the skills supply the method. When context is clear, a short request such as “Break this spec into tasks” is enough. In a new or ambiguous context, include the relevant path or reference.
+
+Naming a skill is optional when the host supports automatic discovery; name it explicitly when routing needs help. Slash-command syntax and discovery vary by host. The expected results below describe skill responsibilities, not instructions you must repeat.
 
 ## Pick the starting point
 
@@ -25,10 +27,7 @@ The file locations below are defaults for projects without existing conventions.
 **Prompt:**
 
 ```text
-Use Millwright in this project. First identify our existing task tracker,
-specification location, and architecture/design documentation. Reuse them;
-do not migrate or duplicate them. Tell me which conventions are missing
-and ask about decisions that need my input before configuring anything.
+Help me adopt Millwright in this project. First inspect our existing conventions.
 ```
 
 **Expected result:** a short mapping of existing conventions and any unresolved setup decisions. Installation or discovery alone should not generate task cards, specs, or an architecture archive. See [Adoption](adoption.md) for project navigation and optional defaults.
@@ -40,10 +39,7 @@ and ask about decisions that need my input before configuring anything.
 **Prompt:**
 
 ```text
-Use manage-task to fix this issue: closing search with Escape does not return
-focus to the message input. Check the existing behavior contract, state the
-scope and verification method, then implement and report the actual result.
-If the fix requires a new design decision, explain that before expanding scope.
+Fix this: closing search with Escape should return focus to the message input.
 ```
 
 **Expected result:** a brief goal, boundaries, implementation, actual verification, and remaining limits. A simple restoration of an existing rule should not require a formal change record.
@@ -57,17 +53,13 @@ If the fix requires a new design decision, explain that before expanding scope.
 **Handoff prompt:**
 
 ```text
-Use manage-task to prepare a persistent handoff for this work in our existing
-tracker. Capture the current branch/workspace, completed work, actual checks,
-remaining work, blockers, and the next action. Do not mark unfinished work Done.
+Prepare this task for handoff to another session.
 ```
 
 **Resume prompt:**
 
 ```text
-Use manage-task to resume task <task reference>.
-Inspect the current code and recorded evidence before repeating work or choosing
-the next step. Tell me if the task's assumptions no longer match the project.
+Resume <task reference>.
 ```
 
 **Expected result:** enough verified context to resume without replaying the whole chat, and a status consistent with actual progress.
@@ -81,10 +73,7 @@ the next step. Tell me if the task's assumptions no longer match the project.
 **Prompt:**
 
 ```text
-Use manage-change to plan manual message retry. Read the current message and
-execution model first. Help me resolve behavior, edge cases, non-goals, and
-acceptance criteria, then prepare the spec. This round is planning only:
-do not start implementation. Keep unresolved decisions explicit.
+Plan manual message retry and draft a spec. No implementation yet.
 ```
 
 **Expected result:** a draft spec, focused questions where needed, and an identified design impact. It becomes Ready only after the appropriate scope confirmation, not merely because the document was generated.
@@ -98,22 +87,19 @@ do not start implementation. Keep unresolved decisions explicit.
 **Prompt:**
 
 ```text
-Use manage-task to break <spec path> into independently verifiable execution
-slices. Show me the proposed results and real blocking dependencies first.
-After I confirm the breakdown, create the tasks in our existing tracker.
-Each task should point to the parent spec and its acceptance coverage.
+Break this spec into tasks. Show me the proposal before creating them.
 ```
 
-**Expected result:** a manageable task graph, not separate database/backend/UI tasks that only become useful when all are finished. Splitting must not redefine the parent requirements.
+**Expected result:** `manage-task` proposes verifiable slices, acceptance coverage, and real dependencies, then publishes under the project’s confirmation and write permissions. Splitting preserves the parent requirements; a confirmed spec does not itself authorize implementation.
+
+If the spec is not already clear from context, provide its path. To accept the proposal and authorize local task creation, say: “Create the tasks as proposed.”
 
 **Files:** tracker tasks or local task files as needed. A short important change can be implemented directly from its spec without a redundant task card.
 
-**Continue prompt:**
+**To authorize implementation instead:**
 
 ```text
-Continue task <task reference> using our normal implementation and testing
-workflow. Respect its parent spec and completion conditions. Bring material
-behavior or scope changes back for confirmation before implementing them.
+Start implementing this spec; split into tasks if needed.
 ```
 
 ## 5. Handle a material deviation
@@ -123,10 +109,7 @@ behavior or scope changes back for confirmation before implementing them.
 **Prompt:**
 
 ```text
-Use manage-change to assess this deviation in <spec path>: the planned retry
-behavior cannot currently prevent duplicate execution. Explain the evidence,
-impact, and options. Do not remove or weaken acceptance criteria just to match
-the implementation. Ask for the necessary scope decision first.
+The planned retry behavior cannot prevent duplicate execution. Assess the impact on this spec.
 ```
 
 **Expected result:** a clear distinction between implementation detail and a change to promised behavior. Confirmed revisions update the active spec and affected execution inputs; unresolved decisions block the affected work.
@@ -140,11 +123,7 @@ the implementation. Ask for the necessary scope decision first.
 **Prompt:**
 
 ```text
-Use maintain-design to synchronize the design affected by <change reference>.
-Focus on execution-attempt identity, late-event handling, and state ownership.
-Check the confirmed decisions against implementation and tests. Update only
-the affected current rules and navigation, not a full repository survey.
-Preserve historical records and label any rollout or feature-gate limits.
+Synchronize the current design for <change reference>.
 ```
 
 **Expected result:** current rules that can be understood without assembling historical specs, with important source and verification links. Unresolved contradictions are exposed rather than silently resolved.
@@ -158,10 +137,7 @@ Preserve historical records and label any rollout or feature-gate limits.
 **Prompt:**
 
 ```text
-Use manage-change to assess whether <change reference> can close. Compare actual
-delivery with the full confirmed spec, inspect verification evidence, reconcile
-unfinished tasks, and check necessary current-design updates. Write the outcome.
-Do not close the change merely because every task is marked Done.
+Close <change reference> if its completion conditions are satisfied.
 ```
 
 **Expected result:** an honest outcome and either a justified Completed status or specific blockers. Missing required verification remains a blocker, not a successful result.
@@ -175,13 +151,7 @@ Do not close the change merely because every task is marked Done.
 **Prompt:**
 
 ```text
-Use maintain-design to reconstruct the current system view. Start with message
-submission, execution-result delivery, and reconnect recovery at the current
-code baseline. Separate confirmed design, observed implementation, and unresolved
-inferences. First show me responsibilities, ownership, and conflicts; after we
-resolve the necessary questions, write a concise map and only the needed details.
-Do not backfill invented history or treat every current implementation choice
-as an approved architectural constraint.
+Map the current messaging system, focusing on submission, result delivery, and reconnect recovery.
 ```
 
 **Expected result:** a navigable map and a small set of meaningful flow or contract documents. Findings may expose work that still needs a decision or implementation; documenting it does not fix it.
@@ -193,11 +163,7 @@ as an approved architectural constraint.
 **When:** the request or spec is clear and you want implementation, not another planning pass.
 
 ```text
-Use implement-work for <request, task, or confirmed spec>. Read the applicable
-current design and completion conditions. Preserve existing workspace changes,
-implement this acceptance subset, and run the required checks. Return actual
-results and remaining gaps; do not commit or close the task/change. Ask before
-implementing material behavior or acceptance changes.
+Implement <request, task, or confirmed spec>.
 ```
 
 **Expected result:** implementation and baseline-specific verification evidence. Test-first methods are available where useful, not forced on every edit. Required review uses `review-work` or the project method. Missing checks or reviews remain explicit gaps; core owners determine closure. A small clear request needs no task card or spec merely to use this skill.
@@ -209,11 +175,7 @@ When implementation is delegated, `implement-work` loads its optional delegation
 **When:** you want a branch, working-tree, or bounded current-state assessment.
 
 ```text
-Use review-work to review <branch comparison, uncommitted changes, or module>.
-State the baseline and scope. Review requirements against <request/task/spec>
-and engineering quality against project standards and current design. Keep the
-two axes separate and distinguish defects, risks, and questions. Report checks
-actually run and limitations. Do not modify code or close work.
+Review <branch comparison, uncommitted changes, or module> against <request or spec>. Do not make changes.
 ```
 
 **Expected result:** actionable, evidence-backed findings and verification limits. A current-state review needs no invented diff; a working-tree review includes relevant untracked files. No formal spec or parallel subagents are required. A self-review is labelled and does not substitute for independent approval.
@@ -232,14 +194,13 @@ For an important change, the typical collaboration is:
 | Synchronize lasting rules | `maintain-design` |
 | Reconcile delivery and close | `manage-change` |
 
-You can express this intent once:
+Express the current phase without restating the workflow:
 
 ```text
-Use Millwright for this feature. Begin by clarifying and confirming the spec.
-Then organize execution only as needed. Ask before material scope changes.
-At delivery, synchronize affected current design and complete the outcome.
-For now, do planning only; do not implement yet.
+Plan this feature first. No implementation yet.
 ```
+
+After confirming the spec, say “Start implementing it” when ready. Skills supply the handoffs within the authorized scope; they do not turn planning approval into execution permission.
 
 This is an instruction to collaborate, not a guarantee of automatic orchestration. Host capabilities determine whether a companion skill is invoked directly or reached through an explicit handoff. Missing capabilities and unperformed steps should be reported.
 
