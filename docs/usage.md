@@ -72,7 +72,7 @@ the next step. Tell me if the task's assumptions no longer match the project.
 
 **Expected result:** enough verified context to resume without replaying the whole chat, and a status consistent with actual progress.
 
-**Files:** the canonical tracker is updated. Without a tracker, a durable local task can use `docs/tasks/NNN-slug.md`. Avoid maintaining both a remote task and a competing local copy.
+**Files:** update the canonical tracker. Without a tracker, use Git-ignored `.tasks/NNN-slug.md` for local recovery, not a competing copy of a remote task. Follow [task policy](../skills/manage-task/references/task-policy.md) for cross-workspace transfer and post-closure cleanup.
 
 ## 3. Plan an important change without implementing it
 

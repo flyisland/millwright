@@ -22,7 +22,7 @@ Keep working conventions. Do not migrate the tracker or duplicate its specs mere
 With project authorization, add a concise navigation block to the existing agent instructions. Adapt this example; do not copy unresolved placeholders:
 
 ```text
-Use manage-task for execution tracking; durable tasks live in <tracker>.
+Use manage-task for execution tracking; persisted tasks live in <tracker>.
 Use manage-change for significant behavior, contract, ownership, or risk changes;
 change records live in <location>. Read <project change policy> when classifying work.
 Use maintain-design when confirmed changes affect long-lived rules or when
@@ -45,8 +45,10 @@ Default locations when no convention exists:
 | Need | Default |
 | --- | --- |
 | Significant change | `docs/changes/NNN-slug/spec.md` and `outcome.md` |
-| Durable local task | `docs/tasks/NNN-slug.md` |
+| Local execution state | `.tasks/NNN-slug.md` (Git-ignored) |
 | Current system view | `docs/design/README.md` plus needed detail |
+
+For local task setup, add `/.tasks/` to the root `.gitignore`; see [task policy](../skills/manage-task/references/task-policy.md) for retention and cross-workspace handoff.
 
 Create directories only when there is actual content. Maintain a simple change index when records exist; the spec owns status.
 

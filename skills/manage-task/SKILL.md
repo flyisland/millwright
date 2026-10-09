@@ -1,6 +1,6 @@
 ---
 name: manage-task
-description: Define, split, resume, hand off, or close execution tasks, standalone or under a change record. Use for lightweight session work, durable tracking, dependencies, and blocked-work coordination.
+description: Define, split, resume, hand off, or close execution tasks, standalone or under a change record. Use for lightweight session work, persistent tracking, dependencies, and blocked-work coordination.
 ---
 
 # Manage Task
@@ -13,7 +13,7 @@ Locate the existing task or establish its goal, boundaries, and completion condi
 
 If the work introduces consequential behavior, contract, ownership, safety, or migration decisions, reach `manage-change` for classification before implementing them.
 
-Choose conversation-only or durable tracking under the policy. Use the [local task template](references/local-task-template.md) only when persistence is needed and no tracker convention exists.
+Choose conversation-only or persistent tracking under the policy. Use the [local task template](references/local-task-template.md) only when persistence is needed and no tracker convention exists.
 
 ## 2. Split when useful
 
@@ -33,6 +33,6 @@ For work too large to execute or hand off reliably, or a breakdown needing revis
 
 Compare returned results with every completion condition and apply the policy's gate. Record actual outcome, verification, limits, and related commits/PRs in the canonical task. If the gate is unmet, keep work active or blocked; for cancellation, record remaining-work disposition.
 
-For parented work, return acceptance coverage and deviations to `manage-change`; task completion does not close the parent. For conversational work, a short result is sufficient.
+For parented work, return acceptance coverage and deviations to `manage-change`; task completion does not close the parent. For conversational work, a short result is sufficient. Apply the policy’s retention and cleanup rules before removing local records.
 
 Use host mechanisms or explicit handoffs; report unavailable companion operations as unperformed. Task management grants no implicit permission for commits, publication, or destructive actions; follow project/user authorization.

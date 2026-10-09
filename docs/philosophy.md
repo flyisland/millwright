@@ -27,7 +27,7 @@ Project conventions own locations, tracker mappings, approval roles, and verific
 
 Recording effort follows durable decision value. Verification effort follows risk. A small fix with no new design decision may still need rigorous security review.
 
-Conversations can hold short-lived work, including a bounded delegation supervised through its return. Persist work when it must survive a session, wait in a queue, or transfer beyond that supervised exchange; `manage-task` owns the persistence policy. Keep operational logs out of long-lived design documents.
+Conversations can hold short-lived work, including a bounded delegation supervised through its return. Persist work when it must survive a session, wait in a queue, or transfer beyond that supervised exchange; `manage-task` owns the [persistence and retention policy](../skills/manage-task/references/task-policy.md). Local task records are recoverable execution state, not permanent project history. Keep operational logs out of long-lived design documents.
 
 ## Separate history from current knowledge
 
