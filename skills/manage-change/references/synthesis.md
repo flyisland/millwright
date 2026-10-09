@@ -14,6 +14,10 @@ For synthesis-only requests, return a draft with explicit gaps. For clarificatio
 
 Use project terminology and concrete counterexamples to expose ambiguous identity, ownership, or lifecycle semantics. A terminology agreement is not approval of new behavior. Send confirmed durable terms/rules to `maintain-design` for placement; proposals remain in the spec.
 
+## Preserve usable investigation results
+
+Retain or link the minimum authorized artifact needed for implementation, or a reproducible retrieval method, with provenance, scope, and access prerequisites. Expose gaps that prevent reuse; do not invent missing facts or retain sensitive data for convenience. Reuse existing evidence without creating a report by default.
+
 ## Make acceptance observable
 
 Connect intended behavior and edge cases to checkable results. Prefer existing public verification boundaries; propose new ones when necessary. Expose any gap that prevents implementation. Agreement on test boundaries alone does not confirm all scope and behavior.

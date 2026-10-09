@@ -9,19 +9,27 @@ description: Implement a bounded request, task, or confirmed spec, including res
 
 Read project instructions, the request/task and parent spec or approved amendments, applicable current design, and required checks. Identify the acceptance subset; a clear small request needs no formal task or spec.
 
-Inspect existing edits and prior results before continuing. Preserve unrelated work. If claiming, dependency reconciliation, splitting, or persistent handoff is needed, reach `manage-task`. For cancelled or superseded inputs, locate the current authorized work first.
+Determine authorization from the current request, confirmed decisions, and project restrictions; checking permission does not automatically require asking again. Distinguish explicit prohibitions, missing authorization, and uncertain interpretation. Before escalating a blocker, verify its key basis and identify the specific decision or permission still needed; do not present a conservative inference as a project rule.
+
+Inspect existing edits and prior results; preserve unrelated work. After an interruption, reconcile operation state and evidence before retrying to avoid duplicate side effects. Promptly return verified results, identify unresolved state, and resume only remaining authorized work.
+
+Reach `manage-task` for claims, dependency reconciliation, splitting, or persistent handoff. For cancelled or superseded inputs, locate the current authorized work first.
 
 **Decision boundary throughout execution:** pause affected work when behavior, contracts, ownership, safety, or acceptance require a material choice. Return evidence and options to `manage-change`, or to `manage-task`/the decision-maker for standalone task scope. Continue only safe, unaffected work; requirement changes are not implementation details.
 
-Proceed when the result, baseline, scope, and checks are clear; otherwise name the blocker.
+Proceed when the result, baseline, scope, and checks are clear; otherwise name the blocker. When implementation of a parent change actually starts, report that fact through `manage-task`, or directly to `manage-change` when no task exists, so the lifecycle owner can update the record.
+
+Direct implementation needs no subagent. When the user requires delegation or you choose it, read [delegated implementation](references/delegation.md) before dispatching; it covers bounded assignments, context reuse, continuation, and receiving results.
 
 ## 2. Implement and check incrementally
 
 Read [verification methods](references/verification.md) when selecting and running checks. Use its test-first method when requested or appropriate; choose suitable validation for non-code work.
 
 - Inspect the relevant path and reproduce reported defects where practical; distinguish a demonstrated cause from a hypothesis.
-- Make a coherent change tied to acceptance, then check it before widening the edit.
-- Reuse project patterns and terminology. Refactor within scope when useful, preserving behavior and rerunning affected checks.
+- Choose the smallest coherent implementation path and the checks that establish completion. Make a change tied to acceptance, then check it before widening the edit.
+- Evaluate existing project capabilities, standard tools, and mature dependencies before building a common capability yourself. Choose by fit, compatibility, safety, and maintenance cost; neither adding a dependency nor avoiding one is an end in itself. Follow dependency authorization rules.
+- Reuse project patterns and terminology. Additional exploration, abstraction, or refactoring needs a concrete in-scope reason; preserve behavior and rerun affected checks.
+- Stop when the bounded result, required checks, and required review are satisfied. Requests for speed should narrow unnecessary work, not hide failures or waive required verification.
 
 ## 3. Review and address findings
 

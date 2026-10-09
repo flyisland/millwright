@@ -8,11 +8,17 @@ A change does not require an explicit task when it can be executed directly. Tas
 
 ## Persistence
 
-- Same-session, immediately executable work: a short conversational brief and result suffice.
-- Queued, cross-session, blocked-across-session, or handed-off work: use the existing tracker.
-- No tracker and persistence is needed: default to `docs/tasks/NNN-slug.md`; allocate an unused ID after inspecting existing tasks. Recheck before creation and coordinate concurrent allocation.
+- Same-session, immediately executable work, including a bounded delegation supervised through its return: a short conversational brief and result suffice.
+- Queued, cross-session, blocked-across-session, or work handed off beyond that supervised exchange: use the existing tracker. Delegation alone does not require a new task record; reuse an existing canonical task when present.
+- No tracker and persistence is needed: use `.tasks/NNN-slug.md` and add `/.tasks/` to the root `.gitignore`. Allocate an unused ID after inspecting existing tasks; coordinate concurrent allocation. Preserve existing project locations unless migration is authorized.
 
 Persist the canonical task only once. A tracker link is preferable to a duplicate Markdown task. Map project statuses to their meaning instead of forcing renames. Creating remote artifacts requires existing authorization; otherwise prepare the proposed content and request permission.
+
+Local persistence supports cross-session recovery, not permanent archival. Git-ignored files do not transfer across clones or worktrees; use a shared tracker or explicit artifact transfer for cross-workspace handoffs.
+
+## Retention and cleanup
+
+After closure, local task records may be removed under project/user cleanup authorization. First transfer outstanding work and retain necessary delivery evidence in the outcome or project evidence store, and confirmed rules through `maintain-design`. Repair references before deletion; active consumers must not depend on disposable records. A standalone task needs no archive without a retention requirement. Done alone does not authorize deletion.
 
 ## States and transitions
 
@@ -46,4 +52,4 @@ Avoid creating a redundant parent-task hierarchy when a change record already su
 
 Capture a concise result, commands or check methods actually used, their results, the inspected baseline, and unresolved limits. A review assertion or passing unit test does not substitute for other required acceptance checks. Never infer that all work succeeded merely because a tool exited successfully.
 
-Keep durable handoffs sufficient to resume without replaying the entire chat: task/spec pointers, current workspace or branch, verified facts, unfinished changes, blockers, and next action. Check for sensitive content before persisting.
+Keep persisted handoffs sufficient to resume without replaying the entire chat: task/spec pointers, current workspace or branch, verified facts, unfinished changes, blockers, result recipient, and next action with its responsible party and resume condition. Record how continuation will occur; if it requires a person to resume the work, say so rather than promise automatic progress. Check for sensitive content before persisting.

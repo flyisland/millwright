@@ -8,6 +8,18 @@ Reuse already-confirmed verification decisions. Confirm a materially new public 
 
 Expected results come from requirements, worked examples, or independent known values. A test that recomputes the implementation's answer or only asserts its internal calls can agree with incorrect behavior. Use test doubles at real external boundaries when needed; preserve tests of the actual integrations where required.
 
+## Isolate checks before execution
+
+Before running checks that can read or write data, inspect their working directory, environment, configuration and input discovery, default paths, and output targets. Use authorized synthetic fixtures and isolated resources unless broader access is explicitly authorized. Assume the behavior under test, including rejection and safety checks, may fail completely: test isolation must not depend on that behavior working. A temporary output directory, disabled network, or mocked service alone does not isolate local inputs.
+
+If a check crosses an authorization boundary or causes unexpected unsafe effects, stop affected operations and promptly report the known scope, evidence, and uncertainties to the responsible decision-maker or coordinator. Do not continue the affected run to collect more evidence or treat the incident as authorized acceptance. Keep safe isolation fixes separate from incident investigation or cleanup; additional access, scans, deletion, or other remediation still require appropriate authorization.
+
+## Reuse evidence within its scope
+
+For an existing implementation, integration, or prior check, identify the source, checked baseline/environment, and behavior it supports. Compare the relevant differences in the new work; inspect or test those differences rather than restarting the entire investigation or treating past success as universal compatibility. Distinguish established facts, assumptions, and remaining unknowns.
+
+Ground test doubles in documented contracts or observed behavior with traceable source pointers. Check that request/response shapes and relevant supported variants match the new implementation, especially where it adds stricter validation. Synthetic success proves behavior under those inputs, not compatibility with an external system. Preserve required final integration checks and their authorization boundaries.
+
 ## Optional test-first loop
 
 When using TDD:
@@ -29,4 +41,8 @@ Use focused checks during edits, then the required broader suite and risk-releva
 
 Associate observations with the checked baseline and environment. After a fix, rerun affected checks and any broader checks required by the project. Do not present pre-fix results as verification of the final state.
 
-Record method/command, scope, actual result, and remaining limits. Report passed, failed, and not run distinctly. If a required environment is unavailable, state the missing prerequisite and next action; do not infer success from inspection or a tool exit code. Exclude secrets and unnecessary transcripts.
+Capture evidence when observed: **method/command, scope, baseline/environment, actual result, limits, and retrievable source where available**. Distinguish passed, failed, and not run; unavailable checks need a prerequisite and next action.
+
+Before compaction or handoff, retain relevant evidence, authorization changes, incident metadata, and unresolved findings in a permitted location that survives the transition. Use concise records or source pointers, excluding sensitive payloads; no new task or report is required solely for retention.
+
+Keep claims within what the evidence establishes. Recover missing results through authorized means where practical; unrecoverable results remain unverified, not replaced by summaries or tool exit codes.

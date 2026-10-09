@@ -14,6 +14,6 @@
 | Acceptance criterion | An observable condition used to determine whether an intended result has been achieved. |
 | Completion condition | A requirement that must be satisfied before a task is marked Done, including any required verification or review. |
 | Evidence | Traceable observations supporting a claim, such as test results, inspection results, or recorded manual checks. |
-| Tracker | The project's chosen mechanism for durable task identity, dependencies, status, and handoff. It may be a service or local files. |
+| Tracker | The project's chosen mechanism for persistent task identity, dependencies, status, and handoff. It may be a service or local files. |
 
 These are Millwright's definitions, not a claim that the industry uses a universal Change → Task hierarchy.

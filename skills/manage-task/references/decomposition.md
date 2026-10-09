@@ -10,6 +10,8 @@ Include the interface, logic, storage, and external interactions only where need
 
 Keep authorization, isolation, compatibility, and other invariants necessary for valid behavior in the first usable slice. A happy path that violates the contract is not a complete slice. Placeholders alone do not demonstrate the real path.
 
+Distinguish evidence needed to start implementation from evidence needed for final acceptance. Consider applicable existing contracts and prior integration evidence before proposing new investigation. Make an unknown a start-blocker only when it prevents a responsible implementation path; otherwise assign it a verification owner and completion gate. Prior evidence can enable implementation without replacing required final checks.
+
 If uncertainty blocks selecting a responsible path, propose a bounded investigation: question, evidence, stopping condition, and decision enabled. Return material behavior choices to `manage-change`; investigation is not approval.
 
 ## Grow by behavior

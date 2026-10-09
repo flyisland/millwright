@@ -1,6 +1,6 @@
 # Local task template
 
-Use only when a task needs to survive the conversation and the project has no existing tracker convention. Default location: `docs/tasks/NNN-slug.md`. An index is optional; the task file owns its status.
+Use only when a task needs to survive the conversation and the project has no existing tracker convention. Default location: `.tasks/NNN-slug.md`. An index is optional; the task file owns its status. Apply [task policy](task-policy.md) for Git exclusion, handoff, and cleanup.
 
 ```markdown
 # NNN — Task title
